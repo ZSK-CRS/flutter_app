@@ -12,8 +12,17 @@ class FlutterLayoutPage extends StatefulWidget {
 class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    return MaterialApp(
+      title: "如何进行Flutter布局开发",
+      theme: ThemeData(
+        primarySwatch: Colors.blue
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(""),
+        ),
+      ),
+    );
   }
 
 }
