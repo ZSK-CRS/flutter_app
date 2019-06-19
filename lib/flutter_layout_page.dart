@@ -55,21 +55,48 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                 ],
               ),
               Container(
-                  height: 100,
-                  margin: EdgeInsets.all(10),
-                 // decoration: BoxDecoration(color: Colors.lightBlueAccent),   背景色
-                  child: PhysicalModel(
-                    color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(6),
-                    clipBehavior: Clip.antiAlias, //抗锯齿
-                    child: PageView(
-                      children: <Widget>[
-                        _item("Page1", Colors.deepPurple),
-                        _item("Page1", Colors.green),
-                        _item("Page1", Colors.red),
-                      ],
+                height: 100,
+                margin: EdgeInsets.all(10),
+                // decoration: BoxDecoration(color: Colors.lightBlueAccent),   背景色
+                child: PhysicalModel(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(6),
+                  clipBehavior: Clip.antiAlias, //抗锯齿
+                  child: PageView(
+                    children: <Widget>[
+                      _item("Page1", Colors.deepPurple),
+                      _item("Page1", Colors.green),
+                      _item("Page1", Colors.red),
+                    ],
+                  ),
+                ),
+              ),
+              Column(
+                children: <Widget>[
+                  FractionallySizedBox(
+                    widthFactor: 1,
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.greenAccent),
+                      child: Text("宽度撑满"),
                     ),
-                  ))
+                  ),
+                  Stack(   //帧布局
+                    children: <Widget>[
+                      Image.network("http://imgup02.sj88.com/2018-08/13/09/15341244804485_0.png",width: 100,height: 100,),
+                      Positioned(
+                        left: 0,bottom: 0,
+                        child: Image.network("http://imgup02.sj88.com/2018-08/13/09/15341244804485_0.png",width: 60,height: 60,),
+                      )
+                    ],
+                  ),
+                  Wrap(
+                    //创建一个Wrap布局，从左向右进行排列，会自动换行
+                    children: <Widget>[
+                      _chip("flutter")
+                    ],
+                  )
+                ],
+              )
             ],
           ),
         ),
@@ -83,5 +110,13 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
         decoration: BoxDecoration(color: color),
         child:
             Text(title, style: TextStyle(fontSize: 22, color: Colors.white)));
+  }
+
+  _chip(String label) {
+    return Chip(label: Text(label),
+      avatar: CircleAvatar(
+        backgroundColor: Colors.blue.shade900,
+      ),
+    );
   }
 }
