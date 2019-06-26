@@ -91,8 +91,13 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
                   ),
                   Wrap(
                     //创建一个Wrap布局，从左向右进行排列，会自动换行
+                    spacing: 8,   //水平间距
+                    runSpacing: 6,  //垂直距离
                     children: <Widget>[
-                      _chip("flutter")
+                      _chip("绿蚁新醅酒"),
+                      _chip("红泥小火炉"),
+                      _chip("晚来天欲雪"),
+                      _chip("能饮一杯无"),
                     ],
                   )
                 ],
@@ -116,6 +121,10 @@ class _FlutterLayoutPageState extends State<FlutterLayoutPage> {
     return Chip(label: Text(label),
       avatar: CircleAvatar(
         backgroundColor: Colors.blue.shade900,
+        child: Text(
+          label.substring(0,1),
+          style: TextStyle(fontSize: 10),
+        ),
       ),
     );
   }
